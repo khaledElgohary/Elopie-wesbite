@@ -1,0 +1,13 @@
+scrape_to_sql.py: 
+    pip install selenium
+    pip install webdriver-manager
+    pip install pandas
+    pip install unidecode
+
+db_connector.py:
+    pip install pysqlite3
+
+DONT RUN scrape_to_sql.py unless update needed.
+It will overwrite the existing entries.sql 
+Putting already made sql file in the folder with db_connector.py 
+
