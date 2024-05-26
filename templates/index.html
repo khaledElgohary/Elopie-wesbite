@@ -1,0 +1,59 @@
+{% extends 'base.html'%}
+
+{% block head %}
+<div id="web_title">
+    <h1>
+        El-Opie
+    </h1>
+</div>
+{% endblock %}
+
+{% block body %}
+<div class="header">
+    <img class="ship" src="/static/css/ship.png" width="75" height="25">
+</div>
+
+
+{% if courses %}
+<div class="courses-list">
+    <h2>Course Results</h2>
+    <table>
+        <tr>
+            <th>Province</th>
+            <th>University</th>
+            <th>External Course Name</th>
+            <th>Internal Course Name</th>
+            <th>Notes</th>
+            <th>Date Range</th>
+        </tr>
+        {% for course in courses %}
+        <tr>
+            <td>{{ course[1] }}</td>
+            <td>{{ course[2] }}</td>
+            <td>{{ course[3] }}</td>
+            <td>{{ course[4] }}</td>
+            <td>{{ course[5] }}</td>
+            <td>{{ course[6] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    {% else %}
+    <form class="course" id="form" action="/generate_course_code" method="post">
+    <label class="top-label" for="uname">Faculty Code:</label><br>
+    <input type="text" id="uname" name="uname" placeholder="E.g: COMP"><br>
+    <label for="cnumber">Course Number:</label>
+    <input type="text" id="cnumber" name="cnumber" placeholder="E.g: 3350"><br>
+    <button type="submit" form="form" value="Generate">Generate</button><br>
+</form>
+{% endif %}
+
+
+
+
+<div class="triangle-light"></div>
+
+
+<p class="members">Create by: Zuhao Fang, Khaled Elgohary, Muhammed Usman Asif, Muhammed Ahmed Asif</p>
+
+{% endblock %}
